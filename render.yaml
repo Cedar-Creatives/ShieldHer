@@ -1,0 +1,44 @@
+services:
+  # PostgreSQL Database
+  - type: pserv
+    name: shieldher-db
+    env: docker
+    plan: free
+    databases:
+      - name: shieldher
+        user: shieldher_user
+
+  # Django Backend
+  - type: web
+    name: shieldher-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /api/health/
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings.production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shieldher-db
+          property: connectionString
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: DEBUG
+        value: False
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+
+  # React Frontend
+  - type: web
+    name: shieldher-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    plan: free
+    envVars:
+      - key: VITE_API_URL
+        sync: false

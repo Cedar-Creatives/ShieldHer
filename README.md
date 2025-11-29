@@ -2,6 +2,21 @@
 
 > A mobile-first digital literacy and safety platform empowering girls and women to end digital violence.
 
+## 🌐 Live Demo
+
+**Deployed Application:** [Coming Soon - Deploy Link Here]
+
+> Note: The application will be deployed on Render.com (free tier). Initial load may take 30-60 seconds as the service spins up.
+
+## 👥 Team & Collaborators
+
+| Name | Role | GitHub |
+|------|------|--------|
+| VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
+| [Collaborator Name] | [Role - e.g., Frontend Developer] | [@username] |
+| [Collaborator Name] | [Role - e.g., Backend Developer] | [@username] |
+| [Collaborator Name] | [Role - e.g., UI/UX Designer] | [@username] |
+
 ## 🌟 Mission
 
 ShieldHer provides a safe, anonymous platform for digital literacy education, incident reporting, emergency resources, and support for survivors of digital violence. Built with privacy-first principles and trauma-informed design.
@@ -286,6 +301,105 @@ docker-compose down -v
 docker-compose up -d
 docker-compose exec backend python manage.py migrate
 ```
+
+## 🚀 Deployment
+
+### Deploying to Render.com (Recommended - Free Tier)
+
+#### Prerequisites
+- GitHub account with this repository
+- Render.com account (sign up at https://render.com)
+
+#### Step 1: Deploy PostgreSQL Database
+
+1. Go to Render Dashboard → New → PostgreSQL
+2. Configure:
+   - **Name:** shieldher-db
+   - **Database:** shieldher
+   - **User:** shieldher_user
+   - **Region:** Choose closest to your users
+   - **Plan:** Free
+3. Click "Create Database"
+4. Copy the **Internal Database URL** (starts with `postgresql://`)
+
+#### Step 2: Deploy Backend (Django)
+
+1. Go to Render Dashboard → New → Web Service
+2. Connect your GitHub repository
+3. Configure:
+   - **Name:** shieldher-backend
+   - **Environment:** Docker
+   - **Region:** Same as database
+   - **Branch:** main
+   - **Dockerfile Path:** backend/Dockerfile
+   - **Plan:** Free
+4. Add Environment Variables:
+   ```
+   DJANGO_SETTINGS_MODULE=config.settings.production
+   SECRET_KEY=<generate-a-secure-random-key>
+   DATABASE_URL=<paste-internal-database-url-from-step-1>
+   ALLOWED_HOSTS=.onrender.com
+   DEBUG=False
+   CORS_ALLOWED_ORIGINS=https://your-frontend-url.onrender.com
+   ```
+5. Click "Create Web Service"
+6. After deployment, run migrations:
+   - Go to Shell tab
+   - Run: `python manage.py migrate`
+   - Run: `python manage.py createsuperuser`
+
+#### Step 3: Deploy Frontend (React)
+
+1. Go to Render Dashboard → New → Static Site
+2. Connect your GitHub repository
+3. Configure:
+   - **Name:** shieldher-frontend
+   - **Branch:** main
+   - **Build Command:** `cd frontend && npm install && npm run build`
+   - **Publish Directory:** `frontend/dist`
+4. Add Environment Variable:
+   ```
+   VITE_API_URL=https://your-backend-url.onrender.com/api
+   ```
+5. Click "Create Static Site"
+
+#### Step 4: Update CORS Settings
+
+1. Go back to backend service environment variables
+2. Update `CORS_ALLOWED_ORIGINS` with your actual frontend URL
+3. Redeploy backend service
+
+### Alternative Deployment Options
+
+#### Railway.app
+- Supports Docker and PostgreSQL
+- $5 free credit monthly
+- Automatic deployments from GitHub
+- [Railway Deployment Guide](https://docs.railway.app/)
+
+#### Vercel (Frontend) + Railway (Backend)
+- Vercel: Best for React apps, unlimited bandwidth
+- Railway: Good for Django + PostgreSQL
+- Split deployment for better performance
+
+#### Fly.io
+- Excellent Docker support
+- Free tier: 3 shared-cpu VMs, 3GB storage
+- Global edge network
+- [Fly.io Django Guide](https://fly.io/docs/django/)
+
+### Post-Deployment Checklist
+
+- [ ] Database migrations completed
+- [ ] Admin superuser created
+- [ ] Environment variables configured
+- [ ] CORS settings updated
+- [ ] SSL certificate active (automatic on Render)
+- [ ] API endpoints responding
+- [ ] Frontend connecting to backend
+- [ ] Test anonymous report submission
+- [ ] Test lesson viewing
+- [ ] Test resource access
 
 ## 📞 Support
 
