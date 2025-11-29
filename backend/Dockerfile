@@ -33,5 +33,8 @@ RUN python manage.py collectstatic --noinput --settings=config.settings.producti
 # Expose port
 EXPOSE 8000
 
-# Run with gunicorn
-CMD gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 2
+# Create startup script that runs migrations then starts server
+RUN echo '#!/bin/bash\npython manage.py migrate --noinput\ngunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 2' > /start.sh && chmod +x /start.sh
+
+# Run startup script
+CMD ["/start.sh"]
