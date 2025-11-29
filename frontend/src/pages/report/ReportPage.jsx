@@ -4,10 +4,10 @@
  */
 
 import React from 'react';
-import { SafeExitButton } from '../../components/report/SafeExitButton';
-import { HistoryHideToggle } from '../../components/report/HistoryHideToggle';
-import { Card } from '../../components/common/Card';
-import { Button } from '../../components/common/Button';
+import SafeExitButton from '../../components/report/SafeExitButton';
+import HistoryHideToggle from '../../components/report/HistoryHideToggle';
+import Card from '../../components/common/Card';
+import Button from '../../components/common/Button';
 import './ReportPage.css';
 
 export const ReportPage = () => {

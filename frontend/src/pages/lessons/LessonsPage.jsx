@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { useLessons } from '../../hooks/useLessons';
-import { LessonCard } from '../../components/literacy/LessonCard';
+import LessonCard from '../../components/literacy/LessonCard';
 import './LessonsPage.css';
 
 export const LessonsPage = () => {

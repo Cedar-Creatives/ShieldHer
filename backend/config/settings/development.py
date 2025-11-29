@@ -11,17 +11,26 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# Use SQLite for local development (easier setup without Docker)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'shieldher_db'),
-        'USER': os.environ.get('DB_USER', 'shieldher_user'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'shieldher_password'),
-        'HOST': os.environ.get('DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
-        'CONN_MAX_AGE': 600,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Uncomment below to use PostgreSQL if you have it running locally
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('DB_NAME', 'shieldher_db'),
+#         'USER': os.environ.get('DB_USER', 'shieldher_user'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD', 'shieldher_password'),
+#         'HOST': os.environ.get('DB_HOST', 'localhost'),
+#         'PORT': os.environ.get('DB_PORT', '5432'),
+#         'CONN_MAX_AGE': 600,
+#     }
+# }
 
 # Email backend for development (console)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
