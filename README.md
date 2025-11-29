@@ -13,7 +13,7 @@
 | Name | Role | GitHub |
 |------|------|--------|
 | VeeCC-T | Full Stack Developer & Project Lead | [@VeeCC-T](https://github.com/VeeCC-T) |
-| [Collaborator Name] | [Role - e.g., Frontend Developer] | [@username] |
+| Presley | Frontend Developer] | [Pres264] |
 | [Collaborator Name] | [Role - e.g., Backend Developer] | [@username] |
 | [Collaborator Name] | [Role - e.g., UI/UX Designer] | [@username] |
 
