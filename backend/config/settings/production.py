@@ -38,16 +38,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 # Static files - Use WhiteNoise or cloud storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Logging - More detailed in production
-LOGGING['handlers']['file'] = {
-    'class': 'logging.handlers.RotatingFileHandler',
-    'filename': BASE_DIR / 'logs' / 'django.log',
-    'maxBytes': 1024 * 1024 * 10,  # 10 MB
-    'backupCount': 5,
-    'formatter': 'verbose',
-    'filters': ['remove_sensitive_data'],
-}
-
-LOGGING['root']['handlers'].append('file')
-LOGGING['loggers']['django']['handlers'].append('file')
-LOGGING['loggers']['apps']['handlers'].append('file')
+# Logging - Use console only in production (Render captures stdout)
+# File logging disabled - Render doesn't have persistent filesystem
