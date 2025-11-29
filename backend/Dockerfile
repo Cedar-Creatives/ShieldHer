@@ -37,5 +37,5 @@ RUN chmod +x /entrypoint.sh
 # Expose port
 EXPOSE 8000
 
-# Run entrypoint script
-ENTRYPOINT ["/entrypoint.sh"]
+# Run entrypoint script with shell
+CMD ["/bin/bash", "/entrypoint.sh"]
