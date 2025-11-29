@@ -44,4 +44,15 @@ api.interceptors.response.use(
   }
 );
 
+// Helper function for making API requests
+export const apiRequest = async (endpoint, options = {}) => {
+  try {
+    const response = await api(endpoint, options);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { api };
 export default api;
