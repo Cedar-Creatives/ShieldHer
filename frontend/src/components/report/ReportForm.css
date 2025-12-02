@@ -1,0 +1,257 @@
+.report-form {
+  max-width: 100%;
+}
+
+.report-form__privacy-notice {
+  background: #f0f9ff;
+  border-left: 4px solid #3b82f6;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+.report-form__privacy-notice h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1e40af;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.report-form__privacy-notice p {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.report-form__alert {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.report-form__alert--error {
+  background: #fee2e2;
+  border-left: 4px solid #dc2626;
+  color: #991b1b;
+}
+
+.report-form__alert--warning {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  color: #92400e;
+}
+
+.report-form__field {
+  margin-bottom: 1.75rem;
+}
+
+.report-form__label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.report-form__label.required::after {
+  content: ' *';
+  color: #dc2626;
+}
+
+.report-form__input,
+.report-form__select,
+.report-form__textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.report-form__input:focus,
+.report-form__select:focus,
+.report-form__textarea:focus {
+  outline: none;
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+.report-form__textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.report-form__help {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.report-form__evidence-link {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.report-form__evidence-link input {
+  flex: 1;
+}
+
+.report-form__remove-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d1d5db;
+  background: white;
+  border-radius: 0.375rem;
+  color: #6b7280;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.report-form__remove-link:hover {
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.report-form__add-link {
+  background: transparent;
+  border: 1px dashed #d1d5db;
+  color: #6b7280;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.report-form__add-link:hover {
+  border-color: #ec4899;
+  color: #ec4899;
+  background: #fdf2f8;
+}
+
+.report-form__checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.report-form__checkbox input[type="checkbox"] {
+  margin-top: 0.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  cursor: pointer;
+}
+
+.report-form__actions {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.report-form__footer-note {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+.report-form__footer-note p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.report-form__success {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.report-form__success-icon {
+  width: 4rem;
+  height: 4rem;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 1.5rem;
+  font-weight: bold;
+}
+
+.report-form__success h3 {
+  color: #1f2937;
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.report-form__success > p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.report-form__confirmation {
+  background: #f0f9ff;
+  border: 2px solid #3b82f6;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.report-form__confirmation label {
+  display: block;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+}
+
+.report-form__confirmation-code {
+  font-family: 'Courier New', monospace;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1e40af;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.report-form__confirmation-note {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #1e3a8a;
+}
+
+@media (max-width: 768px) {
+  .report-form__privacy-notice {
+    padding: 1rem;
+  }
+
+  .report-form__success {
+    padding: 2rem 1rem;
+  }
+
+  .report-form__confirmation-code {
+    font-size: 1.25rem;
+  }
+}

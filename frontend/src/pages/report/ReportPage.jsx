@@ -6,8 +6,8 @@
 import React from 'react';
 import SafeExitButton from '../../components/report/SafeExitButton';
 import HistoryHideToggle from '../../components/report/HistoryHideToggle';
+import { ReportForm } from '../../components/report/ReportForm';
 import Card from '../../components/common/Card';
-import Button from '../../components/common/Button';
 import './ReportPage.css';
 
 export const ReportPage = () => {
@@ -26,9 +26,7 @@ export const ReportPage = () => {
         </header>
 
         <Card>
-          <h2>Submit Anonymous Report</h2>
-          <p>Report form would be implemented here by Person C</p>
-          <Button variant="primary">Submit Report</Button>
+          <ReportForm />
         </Card>
       </div>
     </div>
