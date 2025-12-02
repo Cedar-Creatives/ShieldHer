@@ -62,12 +62,12 @@ export const Home = () => {
           </p>
           <div className="home__hero-actions">
             <Link to="/emergency/helplines">
-              <Button variant="primary" size="large">
+              <Button variant="primary" size="lg">
                 Get Help Now
               </Button>
             </Link>
             <Link to="/lessons">
-              <Button variant="secondary" size="large">
+              <Button variant="secondary" size="lg">
                 Learn More
               </Button>
             </Link>
