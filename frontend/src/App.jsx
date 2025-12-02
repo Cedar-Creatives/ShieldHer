@@ -31,8 +31,8 @@ function App() {
             <Route path="/" element={<Home />} />
             
             {/* Digital Literacy (Person B) */}
-            <Route path="/literacy" element={<LessonsPage />} />
-            <Route path="/literacy/lesson/:id" element={<LessonsPage />} />
+            <Route path="/lessons" element={<LessonsPage />} />
+            <Route path="/lessons/:id" element={<LessonsPage />} />
             
             {/* Anonymous Reporting (Person C) */}
             <Route path="/report" element={<ReportPage />} />
