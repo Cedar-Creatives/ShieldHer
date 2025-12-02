@@ -26,9 +26,19 @@ export const LessonsPage = () => {
 
         <div className="lessons-page__grid">
           {lessons.map((lesson) => (
-            <LessonCard key={lesson.id} lesson={lesson} />
+            <LessonCard 
+              key={lesson.id} 
+              lesson={lesson} 
+              onClick={() => console.log('Lesson clicked:', lesson.id)}
+            />
           ))}
         </div>
+        
+        {!loading && !error && lessons.length === 0 && (
+          <div className="lessons-page__empty">
+            <p>No lessons available yet. Check back soon!</p>
+          </div>
+        )}
       </div>
     </div>
   );
