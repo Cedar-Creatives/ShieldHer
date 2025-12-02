@@ -13,7 +13,7 @@ from apps.lessons.models import Lesson
 
 
 def update_lessons():
-    """Update all lessons with comprehensive content"""
+    """Update all lessons with comprehensive content in natural editorial style"""
     
     # Lesson 1: Understanding Digital Privacy
     lesson1 = Lesson.objects.get(id=1)

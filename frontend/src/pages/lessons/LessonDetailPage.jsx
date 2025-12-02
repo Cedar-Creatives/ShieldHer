@@ -70,8 +70,18 @@ export const LessonDetailPage = () => {
             {lesson.content && typeof lesson.content === 'object' && lesson.content.sections ? (
               lesson.content.sections.map((section, index) => (
                 <section key={index} className="lesson-detail__section">
-                  <h2>{section.title}</h2>
-                  <p>{section.text}</p>
+                  <h2 className="section-title">{section.title}</h2>
+                  {section.paragraphs && section.paragraphs.map((paragraph, pIndex) => (
+                    <p key={pIndex} className="section-paragraph">{paragraph}</p>
+                  ))}
+                  {section.subsections && section.subsections.map((subsection, sIndex) => (
+                    <div key={sIndex} className="subsection">
+                      <h3 className="subsection-title">{subsection.title}</h3>
+                      {subsection.paragraphs && subsection.paragraphs.map((paragraph, pIndex) => (
+                        <p key={pIndex} className="section-paragraph">{paragraph}</p>
+                      ))}
+                    </div>
+                  ))}
                 </section>
               ))
             ) : (
