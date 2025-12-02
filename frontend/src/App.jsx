@@ -15,6 +15,7 @@ import { SafetySettings } from './pages/settings';
 
 // Placeholder pages (to be created by Person B & C or imported)
 import { LessonsPage } from './pages/lessons/LessonsPage';
+import { LessonDetailPage } from './pages/lessons/LessonDetailPage';
 import { ReportPage } from './pages/report/ReportPage';
 
 import './App.css';
@@ -32,7 +33,7 @@ function App() {
             
             {/* Digital Literacy (Person B) */}
             <Route path="/lessons" element={<LessonsPage />} />
-            <Route path="/lessons/:id" element={<LessonsPage />} />
+            <Route path="/lessons/:id" element={<LessonDetailPage />} />
             
             {/* Anonymous Reporting (Person C) */}
             <Route path="/report" element={<ReportPage />} />

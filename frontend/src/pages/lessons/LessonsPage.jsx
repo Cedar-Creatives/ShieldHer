@@ -29,7 +29,7 @@ export const LessonsPage = () => {
             <LessonCard 
               key={lesson.id} 
               lesson={lesson} 
-              onClick={() => console.log('Lesson clicked:', lesson.id)}
+              onClick={() => window.location.href = `/lessons/${lesson.id}`}
             />
           ))}
         </div>
