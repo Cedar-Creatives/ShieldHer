@@ -64,41 +64,7 @@ def update_lessons():
             }
         ]
     }
-    lesson1.quiz = [
-        {
-            "question": "Why is digital privacy important for personal safety?",
-            "options": [
-                "It makes your computer run faster",
-                "It prevents others from tracking your location and activities",
-                "It's only important for celebrities",
-                "It's not really necessary"
-            ],
-            "correct_answer": 1,
-            "explanation": "Digital privacy is crucial for safety because it prevents others from tracking your location, monitoring your activities, and accessing personal information that could put you at risk."
-        },
-        {
-            "question": "What's the most important first step in protecting your accounts?",
-            "options": [
-                "Deleting all social media",
-                "Using strong, unique passwords for each account",
-                "Never going online",
-                "Buying expensive security software"
-            ],
-            "correct_answer": 1,
-            "explanation": "Using strong, unique passwords for each account is the foundation of digital security. It ensures that if one account is compromised, your other accounts remain safe."
-        },
-        {
-            "question": "When should you share your location on social media?",
-            "options": [
-                "In real-time so friends know where you are",
-                "After you've left the location",
-                "Always, it's perfectly safe",
-                "Only on weekends"
-            ],
-            "correct_answer": 1,
-            "explanation": "Share your location only after you've left. Real-time location sharing tells people exactly where you are right now, which can be dangerous."
-        }
-    ]
+    lesson1.quiz = []
     lesson1.save()
     print(f"✓ Updated Lesson 1: {lesson1.title}")
     
@@ -150,41 +116,7 @@ def update_lessons():
             }
         ]
     }
-    lesson2.quiz = [
-        {
-            "question": "What should you do first if someone is harassing you online?",
-            "options": [
-                "Respond and tell them to stop",
-                "Document everything with screenshots",
-                "Delete all your accounts",
-                "Ignore it completely"
-            ],
-            "correct_answer": 1,
-            "explanation": "Documentation is crucial. Take screenshots with dates and times before doing anything else. This evidence is essential for reporting and potential legal action."
-        },
-        {
-            "question": "Is online harassment ever the victim's fault?",
-            "options": [
-                "Yes, if they posted something controversial",
-                "Yes, if they didn't use privacy settings",
-                "No, it's always the harasser's responsibility",
-                "It depends on the situation"
-            ],
-            "correct_answer": 2,
-            "explanation": "Harassment is never the victim's fault, regardless of what they posted or their privacy settings. The responsibility always lies with the person doing the harassing."
-        },
-        {
-            "question": "Why shouldn't you engage with someone harassing you?",
-            "options": [
-                "Because it's rude",
-                "Because any response often encourages them to continue",
-                "Because they'll feel bad",
-                "Because blocking is easier"
-            ],
-            "correct_answer": 1,
-            "explanation": "Harassers often want any reaction. Responding typically encourages them to continue or escalate. The best approach is to document, block, and report without engaging."
-        }
-    ]
+    lesson2.quiz = []
     lesson2.save()
     print(f"✓ Updated Lesson 2: {lesson2.title}")
     
@@ -243,41 +175,7 @@ def update_lessons():
             }
         ]
     }
-    lesson3.quiz = [
-        {
-            "question": "Why should you use different passwords for each account?",
-            "options": [
-                "To make them harder to remember",
-                "So one security breach doesn't compromise all your accounts",
-                "Because websites require it",
-                "To confuse hackers"
-            ],
-            "correct_answer": 1,
-            "explanation": "Using unique passwords means that if one service is breached, your other accounts remain secure. This is one of the most effective ways to protect yourself online."
-        },
-        {
-            "question": "What does two-factor authentication do?",
-            "options": [
-                "Makes logging in faster",
-                "Eliminates the need for passwords",
-                "Requires a second verification step beyond your password",
-                "Automatically backs up your account"
-            ],
-            "correct_answer": 2,
-            "explanation": "Two-factor authentication adds a second layer of security. Even if someone gets your password, they can't access your account without the second factor."
-        },
-        {
-            "question": "When is it safe to share your location on social media?",
-            "options": [
-                "In real-time so friends know where you are",
-                "After you've left the location",
-                "Anytime during the day",
-                "Location sharing is always safe"
-            ],
-            "correct_answer": 1,
-            "explanation": "Share your location only after you've left. Real-time location sharing tells people where you are right now and that you're not home, which can create safety risks."
-        }
-    ]
+    lesson3.quiz = []
     lesson3.save()
     print(f"✓ Updated Lesson 3: {lesson3.title}")
     
@@ -288,7 +186,7 @@ def update_lessons():
         print(f"   Category: {lesson.category} | Difficulty: {lesson.difficulty}")
         print(f"   Duration: {lesson.duration_minutes} minutes")
         print(f"   Sections: {len(lesson.content.get('sections', []))}")
-        print(f"   Quiz questions: {len(lesson.quiz)}")
+
 
 
 if __name__ == '__main__':

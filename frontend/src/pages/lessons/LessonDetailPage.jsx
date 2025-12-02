@@ -88,13 +88,6 @@ export const LessonDetailPage = () => {
               <p>{lesson.content || 'Lesson content coming soon...'}</p>
             )}
           </div>
-
-          {lesson.quiz && lesson.quiz.length > 0 && (
-            <div className="lesson-detail__quiz">
-              <h2>Quiz</h2>
-              <p>Quiz feature coming soon...</p>
-            </div>
-          )}
         </Card>
       </div>
     </div>

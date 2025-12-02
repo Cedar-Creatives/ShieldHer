@@ -106,13 +106,6 @@
   line-height: 1.4;
 }
 
-.lesson-detail__quiz {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #fef3f8;
-  border-radius: 0.5rem;
-}
-
 .lesson-detail__loading,
 .lesson-detail__error {
   text-align: center;
