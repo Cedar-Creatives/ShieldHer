@@ -64,21 +64,6 @@ const LessonCard = ({ lesson, progress, onClick }) => {
         <h3 className="lesson-card__title">{lesson.title}</h3>
         <p className="lesson-card__description">{lesson.description}</p>
 
-        <div className="lesson-card__meta">
-          <span className="lesson-card__meta-item">
-            <svg className="lesson-card__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {lesson.duration_minutes} min
-          </span>
-          <span className="lesson-card__meta-item">
-            <svg className="lesson-card__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            {getDifficultyLabel(lesson.difficulty)}
-          </span>
-        </div>
-
         {hasQuizScore && (
           <div className="lesson-card__quiz-score">
             Quiz Score: {progress.quizScore}/{progress.quizTotal}

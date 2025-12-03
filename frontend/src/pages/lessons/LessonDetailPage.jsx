@@ -59,11 +59,6 @@ export const LessonDetailPage = () => {
             <span className="lesson-detail__category">{lesson.category}</span>
             <h1 className="lesson-detail__title">{lesson.title}</h1>
             <p className="lesson-detail__description">{lesson.description}</p>
-            
-            <div className="lesson-detail__meta">
-              <span>⏱️ {lesson.duration_minutes} minutes</span>
-              <span>📊 {lesson.difficulty}</span>
-            </div>
           </header>
 
           <div className="lesson-detail__content">
