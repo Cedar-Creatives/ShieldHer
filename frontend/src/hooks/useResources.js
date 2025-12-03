@@ -1,76 +1,73 @@
 /**
- * Custom hook for fetching and managing resources data.
+ * Custom hook for resources
+ * Uses static JSON data instead of API calls
  */
 
 import { useState, useEffect } from 'react';
-import { apiRequest } from '../utils/api';
+import resourcesData from '../data/resources.json';
 
-export const useResources = (searchQuery = '', category = '') => {
+export const useResources = (filters = {}) => {
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchResources = async () => {
+    try {
       setLoading(true);
       setError(null);
-
-      try {
-        // Build query parameters
-        const params = new URLSearchParams();
-        if (searchQuery) params.append('search', searchQuery);
-        if (category) params.append('category', category);
-
-        const queryString = params.toString();
-        const url = `/api/resources/${queryString ? `?${queryString}` : ''}`;
-
-        const data = await apiRequest(url);
-        setResources(data.results || data);
-      } catch (err) {
-        console.error('Error fetching resources:', err);
-        setError(err.message || 'Failed to load resources');
-      } finally {
-        setLoading(false);
+      
+      let filteredResources = [...resourcesData];
+      
+      // Apply filters
+      if (filters.category) {
+        filteredResources = filteredResources.filter(r => r.category === filters.category);
       }
-    };
-
-    fetchResources();
-  }, [searchQuery, category]);
+      if (filters.resource_type) {
+        filteredResources = filteredResources.filter(r => r.resource_type === filters.resource_type);
+      }
+      if (filters.search) {
+        const searchLower = filters.search.toLowerCase();
+        filteredResources = filteredResources.filter(r => 
+          r.title.toLowerCase().includes(searchLower) ||
+          r.description.toLowerCase().includes(searchLower) ||
+          r.tags.some(tag => tag.toLowerCase().includes(searchLower))
+        );
+      }
+      
+      setResources(filteredResources);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }, [JSON.stringify(filters)]);
 
   return { resources, loading, error };
 };
 
-/**
- * Hook for fetching a single resource by ID
- */
-export const useResource = (resourceId) => {
+export const useResource = (id) => {
   const [resource, setResource] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!resourceId) {
-      setLoading(false);
-      return;
-    }
-
-    const fetchResource = async () => {
-      setLoading(true);
-      setError(null);
-
+    if (id) {
       try {
-        const data = await apiRequest(`/api/resources/${resourceId}/`);
-        setResource(data);
+        setLoading(true);
+        setError(null);
+        const foundResource = resourcesData.find(r => r.id === parseInt(id));
+        if (foundResource) {
+          setResource(foundResource);
+        } else {
+          setError('Resource not found');
+        }
       } catch (err) {
-        console.error('Error fetching resource:', err);
-        setError(err.message || 'Failed to load resource');
+        setError(err.message);
       } finally {
         setLoading(false);
       }
-    };
-
-    fetchResource();
-  }, [resourceId]);
+    }
+  }, [id]);
 
   return { resource, loading, error };
 };

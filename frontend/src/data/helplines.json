@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "name": "Crisis Text Line",
+    "phone_number": "Text HOME to 741741",
+    "description": "Free 24/7 crisis support via text message",
+    "category": "crisis",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": [
+      "English",
+      "Spanish"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "National Suicide Prevention Lifeline",
+    "phone_number": "988",
+    "description": "Free and confidential support for people in distress",
+    "category": "crisis",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": [
+      "English",
+      "Spanish"
+    ]
+  }
+]

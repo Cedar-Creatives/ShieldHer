@@ -1,47 +1,47 @@
 /**
- * Custom hook for lessons API
- * Handles fetching lessons, lesson details, and quiz submission
+ * Custom hook for lessons
+ * Uses static JSON data instead of API calls
  */
 
 import { useState, useEffect } from 'react';
-import api from '../utils/api';
+import lessonsData from '../data/lessons.json';
 
 export const useLessons = (filters = {}) => {
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [pagination, setPagination] = useState(null);
 
   useEffect(() => {
-    fetchLessons();
-  }, [JSON.stringify(filters)]);
-
-  const fetchLessons = async () => {
     try {
       setLoading(true);
       setError(null);
       
-      const params = new URLSearchParams();
-      if (filters.category) params.append('category', filters.category);
-      if (filters.difficulty) params.append('difficulty', filters.difficulty);
-      if (filters.search) params.append('search', filters.search);
+      let filteredLessons = [...lessonsData];
       
-      const response = await api.get(`/api/lessons/?${params.toString()}`);
+      // Apply filters
+      if (filters.category) {
+        filteredLessons = filteredLessons.filter(l => l.category === filters.category);
+      }
+      if (filters.difficulty) {
+        filteredLessons = filteredLessons.filter(l => l.difficulty === filters.difficulty);
+      }
+      if (filters.search) {
+        const searchLower = filters.search.toLowerCase();
+        filteredLessons = filteredLessons.filter(l => 
+          l.title.toLowerCase().includes(searchLower) ||
+          l.description.toLowerCase().includes(searchLower)
+        );
+      }
       
-      setLessons(response.data.results || response.data);
-      setPagination({
-        count: response.data.count,
-        next: response.data.next,
-        previous: response.data.previous,
-      });
+      setLessons(filteredLessons);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  };
+  }, [JSON.stringify(filters)]);
 
-  return { lessons, loading, error, pagination, refetch: fetchLessons };
+  return { lessons, loading, error };
 };
 
 export const useLesson = (id) => {
@@ -51,66 +51,22 @@ export const useLesson = (id) => {
 
   useEffect(() => {
     if (id) {
-      fetchLesson();
+      try {
+        setLoading(true);
+        setError(null);
+        const foundLesson = lessonsData.find(l => l.id === parseInt(id));
+        if (foundLesson) {
+          setLesson(foundLesson);
+        } else {
+          setError('Lesson not found');
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
   }, [id]);
 
-  const fetchLesson = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      const response = await api.get(`/api/lessons/${id}/`);
-      setLesson(response.data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return { lesson, loading, error, refetch: fetchLesson };
-};
-
-export const useCategories = () => {
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    try {
-      const response = await api.get('/api/lessons/categories/');
-      setCategories(response.data.categories || []);
-    } catch (err) {
-      console.error('Failed to fetch categories:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return { categories, loading };
-};
-
-export const useDifficulties = () => {
-  const [difficulties, setDifficulties] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchDifficulties();
-  }, []);
-
-  const fetchDifficulties = async () => {
-    try {
-      const response = await api.get('/api/lessons/difficulties/');
-      setDifficulties(response.data.difficulties || []);
-    } catch (err) {
-      console.error('Failed to fetch difficulties:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return { difficulties, loading };
+  return { lesson, loading, error };
 };

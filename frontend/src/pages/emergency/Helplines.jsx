@@ -3,9 +3,8 @@
  * Displays searchable directory of emergency helplines with offline support.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useHelplines } from '../../hooks/useHelplines';
-import { useOfflineCache } from '../../hooks/useOfflineCache';
 import { HelplineCard } from '../../components/emergency/HelplineCard';
 import { Input } from '../../components/common/Input';
 import './Helplines.css';
@@ -13,8 +12,26 @@ import './Helplines.css';
 export const Helplines = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const { helplines, loading, error, isOffline } = useHelplines(searchQuery, selectedCategory);
-  const { isOnline } = useOfflineCache();
+  const { helplines: allHelplines, loading, error } = useHelplines();
+  
+  // Filter helplines based on search and category
+  const helplines = useMemo(() => {
+    let filtered = allHelplines;
+    
+    if (selectedCategory) {
+      filtered = filtered.filter(h => h.category === selectedCategory);
+    }
+    
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(h =>
+        h.name.toLowerCase().includes(query) ||
+        h.description.toLowerCase().includes(query)
+      );
+    }
+    
+    return filtered;
+  }, [allHelplines, selectedCategory, searchQuery]);
 
   const categories = [
     { value: '', label: 'All Categories' },
@@ -35,12 +52,7 @@ export const Helplines = () => {
             24/7 support is available. If you're in immediate danger, call 911.
           </p>
           
-          {!isOnline && (
-            <div className="helplines-page__offline-banner" role="alert">
-              <span className="helplines-page__offline-icon">📵</span>
-              <span>You're offline. Showing cached helplines.</span>
-            </div>
-          )}
+
         </header>
 
         <div className="helplines-page__filters">
@@ -81,7 +93,7 @@ export const Helplines = () => {
           </div>
         )}
 
-        {error && !isOffline && (
+        {error && (
           <div className="helplines-page__error" role="alert">
             <p>{error}</p>
           </div>

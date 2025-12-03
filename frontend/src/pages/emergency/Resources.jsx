@@ -3,7 +3,7 @@
  * Displays searchable directory of educational resources.
  */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useResources, useResource } from '../../hooks/useResources';
 import { ResourceCard } from '../../components/emergency/ResourceCard';
 import { Input } from '../../components/common/Input';
@@ -15,8 +15,28 @@ export const Resources = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedResourceId, setSelectedResourceId] = useState(null);
   
-  const { resources, loading, error } = useResources(searchQuery, selectedCategory);
+  const { resources: allResources, loading, error } = useResources();
   const { resource: selectedResource, loading: resourceLoading } = useResource(selectedResourceId);
+  
+  // Filter resources based on search and category
+  const resources = useMemo(() => {
+    let filtered = allResources;
+    
+    if (selectedCategory) {
+      filtered = filtered.filter(r => r.category === selectedCategory);
+    }
+    
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(r =>
+        r.title.toLowerCase().includes(query) ||
+        r.description.toLowerCase().includes(query) ||
+        r.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+    }
+    
+    return filtered;
+  }, [allResources, selectedCategory, searchQuery]);
 
   const categories = [
     { value: '', label: 'All Categories' },

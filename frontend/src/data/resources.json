@@ -1,0 +1,35 @@
+[
+  {
+    "id": 3,
+    "title": "RAINN - National Sexual Assault Hotline",
+    "description": "National sexual assault hotline and online chat. Call 1-800-656-4673",
+    "content": "RAINN (Rape, Abuse & Incest National Network) operates the National Sexual Assault Hotline. Available 24/7 with free, confidential support.",
+    "category": "organizations",
+    "resource_type": "organization",
+    "external_url": "https://www.rainn.org",
+    "tags": [],
+    "created_at": "2025-11-29T13:44:10.712123+00:00"
+  },
+  {
+    "id": 2,
+    "title": "Cyber Civil Rights Initiative",
+    "description": "Support for victims of non-consensual pornography and online abuse",
+    "content": "The Cyber Civil Rights Initiative provides support, resources, and advocacy for victims of non-consensual pornography and online abuse.",
+    "category": "organizations",
+    "resource_type": "organization",
+    "external_url": "https://www.cybercivilrights.org",
+    "tags": [],
+    "created_at": "2025-11-29T13:44:10.704109+00:00"
+  },
+  {
+    "id": 1,
+    "title": "National Domestic Violence Hotline",
+    "description": "Free, confidential support 24/7 for victims of domestic violence. Call 1-800-799-7233",
+    "content": "The National Domestic Violence Hotline provides 24/7 support for victims of domestic violence. All calls are confidential and anonymous.",
+    "category": "organizations",
+    "resource_type": "organization",
+    "external_url": "https://www.thehotline.org",
+    "tags": [],
+    "created_at": "2025-11-29T13:44:10.693594+00:00"
+  }
+]
