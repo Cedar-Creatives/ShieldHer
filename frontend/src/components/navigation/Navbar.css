@@ -75,6 +75,46 @@
   font-weight: 600;
 }
 
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.navbar__donate-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+}
+
+.navbar__donate-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.navbar__donate-button:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
+
+.navbar__donate-icon {
+  font-size: 1.125rem;
+}
+
+.navbar__donate-text {
+  display: none;
+}
+
 .navbar__emergency {
   flex-shrink: 0;
 }
@@ -121,8 +161,16 @@
     display: flex;
   }
 
+  .navbar__donate-text {
+    display: inline;
+  }
+
   .navbar__emergency-text {
     display: inline;
+  }
+
+  .navbar__actions {
+    gap: 0.75rem;
   }
 }
 

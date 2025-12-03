@@ -154,6 +154,41 @@ export const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Donation CTA */}
+      <section className="home__section home__section--donate">
+        <div className="home__container">
+          <Card className="home__donate-card">
+            <div className="home__donate-content">
+              <div className="home__donate-icon">💝</div>
+              <h2 className="home__donate-title">Help Us Help Others</h2>
+              <p className="home__donate-description">
+                Your donation helps us provide free, safe resources to survivors of domestic violence. 
+                Every contribution makes a difference in someone's life.
+              </p>
+              <div className="home__donate-impact">
+                <div className="home__donate-impact-item">
+                  <strong>$10</strong> provides digital literacy resources
+                </div>
+                <div className="home__donate-impact-item">
+                  <strong>$25</strong> supports helpline directory maintenance
+                </div>
+                <div className="home__donate-impact-item">
+                  <strong>$50</strong> helps develop new safety tools
+                </div>
+              </div>
+              <Link to="/emergency/donations">
+                <Button variant="primary" size="lg" className="home__donate-button">
+                  Make a Donation
+                </Button>
+              </Link>
+              <p className="home__donate-note">
+                100% secure • Anonymous option available • No payment details stored
+              </p>
+            </div>
+          </Card>
+        </div>
+      </section>
     </div>
   );
 };

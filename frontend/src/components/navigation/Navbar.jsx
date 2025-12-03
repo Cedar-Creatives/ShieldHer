@@ -60,7 +60,15 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        <div className="navbar__emergency">
+        <div className="navbar__actions">
+          <Link
+            to="/emergency/donations"
+            className="navbar__donate-button"
+            aria-label="Support ShieldHer"
+          >
+            <span className="navbar__donate-icon">💝</span>
+            <span className="navbar__donate-text">Donate</span>
+          </Link>
           <a
             href="tel:1-800-799-7233"
             className="navbar__emergency-button"
