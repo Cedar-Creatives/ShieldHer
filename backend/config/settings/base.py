@@ -158,6 +158,17 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
 
 CORS_ALLOW_CREDENTIALS = False  # No cookies for anonymous users
 
+# Encryption key for sensitive data (reports, etc.)
+# IMPORTANT: Must be set in production environment variables
+ENCRYPTION_KEY = os.environ.get('ENCRYPTION_KEY', None)
+
+# Generate a key for development if not set
+if not ENCRYPTION_KEY and os.environ.get('DJANGO_SETTINGS_MODULE', '').endswith('development'):
+    from cryptography.fernet import Fernet
+    ENCRYPTION_KEY = Fernet.generate_key().decode()
+    print(f"⚠️  WARNING: Using auto-generated encryption key for development")
+    print(f"   Set ENCRYPTION_KEY environment variable for production!")
+
 # Security settings
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
