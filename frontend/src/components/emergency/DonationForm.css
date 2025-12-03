@@ -42,9 +42,14 @@
   transition: all 0.2s;
 }
 
-.donation-form__amount-button:hover:not(:disabled) {
+.donation-form__amount-button:hover:not(:disabled):not(.donation-form__amount-button--active) {
   border-color: var(--color-primary, #8B5CF6);
   background-color: #F9FAFB;
+}
+
+.donation-form__amount-button--active:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%);
+  transform: translateY(-2px);
 }
 
 .donation-form__amount-button:focus {
@@ -53,9 +58,11 @@
 }
 
 .donation-form__amount-button--active {
-  background-color: var(--color-primary, #8B5CF6);
-  border-color: var(--color-primary, #8B5CF6);
-  color: white;
+  background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  border-color: #8B5CF6;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
 }
 
 .donation-form__amount-button:disabled {

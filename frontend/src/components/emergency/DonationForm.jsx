@@ -26,8 +26,7 @@ export const DonationForm = ({
     setErrors({ ...errors, amount: null });
   };
 
-  const handleCustomAmountChange = (e) => {
-    const value = e.target.value;
+  const handleCustomAmountChange = (value) => {
     setCustomAmount(value);
     setAmount(value);
     setErrors({ ...errors, amount: null });
@@ -137,7 +136,7 @@ export const DonationForm = ({
             type="email"
             label="Email Address"
             value={donorEmail}
-            onChange={(e) => setDonorEmail(e.target.value)}
+            onChange={(value) => setDonorEmail(value)}
             placeholder="your@email.com"
             disabled={isProcessing}
             error={errors.donorEmail}
