@@ -77,7 +77,7 @@ export const ReportForm = () => {
         evidence_links: filteredLinks
       };
 
-      const response = await api.post('/reports/', submitData);
+      const response = await api.post('/api/reports/', submitData);
 
       setConfirmationCode(response.data.confirmation_code);
       setSuccess(response.data.message);
