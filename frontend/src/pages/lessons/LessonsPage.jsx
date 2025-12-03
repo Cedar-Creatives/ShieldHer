@@ -4,11 +4,13 @@
  */
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLessons } from '../../hooks/useLessons';
 import LessonCard from '../../components/literacy/LessonCard';
 import './LessonsPage.css';
 
 export const LessonsPage = () => {
+  const navigate = useNavigate();
   const { lessons, loading, error } = useLessons();
 
   return (
@@ -29,7 +31,7 @@ export const LessonsPage = () => {
             <LessonCard 
               key={lesson.id} 
               lesson={lesson} 
-              onClick={() => window.location.href = `/lessons/${lesson.id}`}
+              onClick={() => navigate(`/lessons/${lesson.id}`)}
             />
           ))}
         </div>
