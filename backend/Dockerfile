@@ -30,9 +30,11 @@ RUN mkdir -p staticfiles media
 # Collect static files
 RUN python manage.py collectstatic --noinput --settings=config.settings.production || true
 
+# Make entrypoint script executable
+RUN chmod +x entrypoint.sh
+
 # Expose port
 EXPOSE 8000
 
-# Run migrations and start server
-CMD python manage.py migrate --noinput && \
-    gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 2
+# Use entrypoint script
+ENTRYPOINT ["./entrypoint.sh"]
