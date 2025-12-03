@@ -30,8 +30,12 @@ RUN mkdir -p staticfiles media
 # Collect static files
 RUN python manage.py collectstatic --noinput --settings=config.settings.production || true
 
+# Copy and make start script executable
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
 # Expose port
 EXPOSE 8000
 
-# Run migrations and start server
-CMD ["sh", "-c", "python manage.py migrate --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 2"]
+# Use start script
+CMD ["/app/start.sh"]
