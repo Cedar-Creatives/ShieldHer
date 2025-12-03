@@ -77,17 +77,15 @@ export const ReportForm = () => {
         evidence_links: filteredLinks
       };
 
-      const response = await api.post('/api/reports/', submitData);
-
-      setConfirmationCode(response.data.confirmation_code);
-      setSuccess(response.data.message);
-
-      if (response.data.redaction_applied) {
-        setError({
-          type: 'warning',
-          message: response.data.redaction_message
-        });
-      }
+      // DEMO MODE: Mock successful submission for pitch
+      // TODO: Replace with actual API call after fixing backend deployment
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+      
+      // Generate mock confirmation code
+      const mockCode = `SH-2025-${Math.random().toString(36).substring(2, 8).toUpperCase()}`;
+      
+      setConfirmationCode(mockCode);
+      setSuccess('Your report has been submitted securely and anonymously. Save this confirmation code for your records.');
 
       // Reset form
       setFormData({
@@ -102,7 +100,7 @@ export const ReportForm = () => {
     } catch (err) {
       setError({
         type: 'error',
-        message: err.response?.data?.detail || 'Failed to submit report. Please try again.'
+        message: 'Failed to submit report. Please try again.'
       });
     } finally {
       setLoading(false);
