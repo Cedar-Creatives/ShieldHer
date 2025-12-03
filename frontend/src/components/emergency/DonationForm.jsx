@@ -23,13 +23,17 @@ export const DonationForm = ({
   const handleSuggestedAmountClick = (suggestedAmount) => {
     setAmount(suggestedAmount.toString());
     setCustomAmount('');
-    setErrors({ ...errors, amount: null });
+    // Remove amount error by creating new object without it
+    const { amount: _, ...restErrors } = errors;
+    setErrors(restErrors);
   };
 
   const handleCustomAmountChange = (value) => {
     setCustomAmount(value);
     setAmount(value);
-    setErrors({ ...errors, amount: null });
+    // Remove amount error by creating new object without it
+    const { amount: _, ...restErrors } = errors;
+    setErrors(restErrors);
   };
 
   const validate = () => {
