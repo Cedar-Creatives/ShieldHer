@@ -21,6 +21,8 @@ services:
         sync: false
       - key: PORT
         value: "8000"
+      - key: ENCRYPTION_KEY
+        generateValue: true
 
   # React Frontend
   - type: web
