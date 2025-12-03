@@ -1,28 +1,192 @@
 [
   {
     "id": 1,
-    "name": "Crisis Text Line",
-    "phone_number": "Text HOME to 741741",
-    "description": "Free 24/7 crisis support via text message",
+    "name": "National Domestic Violence Hotline",
+    "phone_number": "1-800-799-7233",
+    "description": "24/7 support for domestic violence survivors. Confidential help from trained advocates.",
     "category": "crisis",
     "availability": "24/7",
     "is_24_7": true,
-    "languages": [
-      "English",
-      "Spanish"
-    ]
+    "languages": ["English", "Spanish", "200+ languages via interpretation"]
   },
   {
     "id": 2,
-    "name": "National Suicide Prevention Lifeline",
-    "phone_number": "988",
-    "description": "Free and confidential support for people in distress",
+    "name": "Crisis Text Line",
+    "phone_number": "Text HOME to 741741",
+    "description": "Free 24/7 crisis support via text message. Text with a trained crisis counselor.",
     "category": "crisis",
     "availability": "24/7",
     "is_24_7": true,
-    "languages": [
-      "English",
-      "Spanish"
-    ]
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 3,
+    "name": "National Suicide Prevention Lifeline",
+    "phone_number": "988",
+    "description": "Free and confidential support for people in distress, prevention and crisis resources.",
+    "category": "crisis",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 4,
+    "name": "RAINN National Sexual Assault Hotline",
+    "phone_number": "1-800-656-4673",
+    "description": "24/7 support for survivors of sexual assault. Confidential crisis support and referrals.",
+    "category": "crisis",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 5,
+    "name": "Legal Services Corporation",
+    "phone_number": "202-295-1500",
+    "description": "Provides civil legal assistance to low-income Americans. Can help with protective orders and family law.",
+    "category": "legal",
+    "availability": "Mon-Fri 9am-5pm ET",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 6,
+    "name": "National Center for Victims of Crime",
+    "phone_number": "1-855-484-2846",
+    "description": "Legal advocacy and support for crime victims. Help navigating the justice system.",
+    "category": "legal",
+    "availability": "Mon-Fri 10am-6pm ET",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 7,
+    "name": "WomensLaw.org Hotline",
+    "phone_number": "1-800-799-7233",
+    "description": "Legal information and resources for domestic violence survivors. State-specific legal info.",
+    "category": "legal",
+    "availability": "24/7 (online resources)",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 8,
+    "name": "National Alliance on Mental Illness (NAMI)",
+    "phone_number": "1-800-950-6264",
+    "description": "Mental health support and counseling referrals. Free information and support.",
+    "category": "counseling",
+    "availability": "Mon-Fri 10am-10pm ET",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 9,
+    "name": "SAMHSA National Helpline",
+    "phone_number": "1-800-662-4357",
+    "description": "Substance abuse and mental health treatment referral service. Free and confidential.",
+    "category": "counseling",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 10,
+    "name": "National Child Traumatic Stress Network",
+    "phone_number": "310-235-2633",
+    "description": "Resources and referrals for children and families dealing with trauma.",
+    "category": "counseling",
+    "availability": "Mon-Fri 9am-5pm PT",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 11,
+    "name": "National Safe Place",
+    "phone_number": "Text SAFE and your location to 69866",
+    "description": "Immediate help for youth in crisis. Connects to nearby safe places and emergency services.",
+    "category": "shelter",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English"]
+  },
+  {
+    "id": 12,
+    "name": "National Runaway Safeline",
+    "phone_number": "1-800-786-2929",
+    "description": "Crisis intervention and referrals for runaway and homeless youth. Shelter referrals available.",
+    "category": "shelter",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 13,
+    "name": "Salvation Army Emergency Services",
+    "phone_number": "1-800-728-7825",
+    "description": "Emergency shelter, food, and housing assistance. Local shelter referrals.",
+    "category": "shelter",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 14,
+    "name": "National Health Information Center",
+    "phone_number": "1-800-336-4797",
+    "description": "Health information and referrals to health services. Can help find medical care.",
+    "category": "medical",
+    "availability": "Mon-Fri 9am-5pm ET",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 15,
+    "name": "Planned Parenthood Hotline",
+    "phone_number": "1-800-230-7526",
+    "description": "Reproductive health services and information. Confidential medical care and referrals.",
+    "category": "medical",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 16,
+    "name": "National Nurse Helpline",
+    "phone_number": "1-877-226-4842",
+    "description": "Speak with a registered nurse about health concerns. Free medical advice and referrals.",
+    "category": "medical",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 17,
+    "name": "Love Is Respect",
+    "phone_number": "1-866-331-9474",
+    "description": "Support for teens and young adults in dating relationships. Text LOVEIS to 22522.",
+    "category": "other",
+    "availability": "24/7",
+    "is_24_7": true,
+    "languages": ["English", "Spanish"]
+  },
+  {
+    "id": 18,
+    "name": "StrongHearts Native Helpline",
+    "phone_number": "1-844-762-8483",
+    "description": "Culturally-appropriate support for Native Americans affected by domestic violence.",
+    "category": "other",
+    "availability": "Daily 7am-10pm CT",
+    "is_24_7": false,
+    "languages": ["English", "Native languages available"]
+  },
+  {
+    "id": 19,
+    "name": "National Center on Elder Abuse",
+    "phone_number": "1-800-677-1116",
+    "description": "Resources and support for elder abuse victims and concerned individuals.",
+    "category": "other",
+    "availability": "Mon-Fri 9am-8pm ET",
+    "is_24_7": false,
+    "languages": ["English", "Spanish"]
   }
 ]
